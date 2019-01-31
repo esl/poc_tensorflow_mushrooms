@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <title>Hello FileUpload!</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    
   </head>
 
   <body>
@@ -16,7 +16,7 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <li></li>
           </ul>
         </nav>
         <span class="logo"></span>
@@ -30,6 +30,6 @@
       </main>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+   
   </body>
 </html>
