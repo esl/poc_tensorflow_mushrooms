@@ -32,15 +32,15 @@ defmodule FileUpload.PageController do
 
     output = Regex.replace(~r/\n/, x, "\n")
 
-    render(conn, "index.html", token: get_csrf_token())
-  end
-
-  def foretell(conn, %{"name" => name}) do
-    prophecies = [
-      "Nothing will be good, #{name}",
-      "You don't need to think about the future, #{name}. You don't have any"
-    ]
-
-    text(conn, Enum.random(prophecies))
+    html(conn, """
+       <html>
+          <head>
+             <title>Passing an Id</title>
+          </head>
+          <body>
+            <pre>Results #{output}</pre>
+          </body>
+        </html>
+    """)
   end
 end
