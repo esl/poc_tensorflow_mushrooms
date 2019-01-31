@@ -1,0 +1,11 @@
+#<form  method="post" enctype="multipart/form-data">
+#    Select image to upload:
+#    <input type="file" name="fileToUpload" id="fileToUpload">
+#    <input type="submit" value="Upload Image" name="submit">
+#</form>
+
+
+<%= form_for @conn, page_path(@conn, :foretell), fn f -> %>
+  Name: <%= text_input f, :name %>
+  <%= submit "Tell me my future!" %>
+<% end %>
