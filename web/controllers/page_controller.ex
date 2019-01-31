@@ -17,6 +17,21 @@ defmodule FileUpload.PageController do
 
     File.copy!(path, "/tmp/output")
 
+    {x, _} =
+      System.cmd(
+        "python",
+        [
+          "-m",
+          "scripts.label_image",
+          "--graph=/Users/b/repos/my-tensorflow-for-poets/tf_files/retrained_graph.pb",
+          "--image=/tmp/output",
+          "--labels=/Users/b/repos/my-tensorflow-for-poets/tf_files/retrained_labels.txt"
+        ],
+        env: [{"PYTHONPATH", "/Users/b/repos/my-tensorflow-for-poets/"}]
+      )
+
+    output = Regex.replace(~r/\n/, x, "\n")
+
     render(conn, "index.html", token: get_csrf_token())
   end
 
